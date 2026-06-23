@@ -1,0 +1,140 @@
+/* ====================================================
+   SAARA — Design System Tokens
+   ==================================================== */
+
+:root {
+  /* Color */
+  --ink: #0A0A0A;
+  --ink-90: rgba(10, 10, 10, 0.9);
+  --ink-70: rgba(10, 10, 10, 0.7);
+  --ink-55: rgba(10, 10, 10, 0.55);
+  --ink-40: rgba(10, 10, 10, 0.4);
+  --ink-20: rgba(10, 10, 10, 0.2);
+  --ink-10: rgba(10, 10, 10, 0.1);
+  --ink-05: rgba(10, 10, 10, 0.05);
+
+  --paper: #F2EFE8;
+  --paper-90: rgba(242, 239, 232, 0.9);
+  --paper-70: rgba(242, 239, 232, 0.7);
+  --paper-40: rgba(242, 239, 232, 0.4);
+  --paper-20: rgba(242, 239, 232, 0.2);
+  --paper-10: rgba(242, 239, 232, 0.1);
+
+  /* Accent — burnt orange, the signature element */
+  --signal: #FF4500;
+  --signal-soft: rgba(255, 69, 0, 0.1);
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Spacing */
+  --gutter: 32px;
+  --gutter-sm: 20px;
+  --section-y: 120px;
+  --section-y-sm: 80px;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Numeric scale */
+  --display-1: clamp(64px, 11vw, 144px);
+  --display-2: clamp(48px, 8vw, 96px);
+  --display-3: clamp(36px, 5vw, 64px);
+  --heading-1: clamp(28px, 4vw, 56px);
+  --heading-2: clamp(22px, 3vw, 38px);
+  --body: 14px;
+  --mono-sm: 11px;
+  --mono-xs: 10px;
+}
+
+/* ====================================================
+   Reset
+   ==================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--body);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-x: hidden;
+  cursor: none;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Paper grain texture — applied once to body */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  z-index: 999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  cursor: none;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+input,
+textarea {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  body {
+    cursor: auto;
+  }
+}
