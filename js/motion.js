@@ -525,7 +525,6 @@
      Init everything
      -------------------------------------------------- */
   function init() {
-    initCursor();
     initNav();
     initParallax();
     initMagnetic();
